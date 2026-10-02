@@ -4,7 +4,7 @@ return {
 	opts = {
 		keymap = { preset = 'default' },
 		appearance = { nerd_font_variant = 'mono' },
-		completion = { menu = { auto_show = false, auto_show_delay_ms = 500 } },
+		completion = { menu = { auto_show = true } },
 		sources = {
 			default = { 'lsp', 'path', 'snippets' },
 		},

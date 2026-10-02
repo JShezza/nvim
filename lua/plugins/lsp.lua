@@ -45,6 +45,7 @@ return {
 				},
 			})
 
+			require('fidget').setup({})
 			require('mason-lspconfig').setup(opts)
 
 			vim.diagnostic.config({
@@ -60,6 +61,24 @@ return {
 				underline = { sverity = { min = vim.diagnostic.severity.WARN } },
 				virtual_text = true,
 				virtual_lines = false,
+			})
+
+			vim.api.nvim_create_autocmd('LspAttach', {
+				group = vim.api.nvim_create_augroup('lsp-group', { clear = true }),
+				callback = function(event)
+					local map = function(keys, func, desc)
+						vim.keymap.set('n', keys, func, {
+							buffer = event.buf,
+							desc = 'LSP: ' .. desc,
+						})
+					end
+
+					map('grn', vim.lsp.buf.rename, 'Rename')
+					map('grr', vim.lsp.buf.references, 'References')
+					map('gra', vim.lsp.buf.code_action, 'Goto Code Action')
+					map('K', vim.lsp.buf.hover, 'Hover Documentation')
+					map('gd', vim.lsp.buf.definition, 'Goto Definition')
+				end,
 			})
 		end,
 	},
