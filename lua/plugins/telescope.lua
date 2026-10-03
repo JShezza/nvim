@@ -13,6 +13,13 @@ return {
 		local builtin = require('telescope.builtin')
 
 		telescope.setup({
+			pickers = {
+				find_files = {
+					hidden = true,
+					follow = true,
+				},
+			},
+
 			extensions = {
 				['ui-select'] = { require('telescope.themes').get_dropdown() },
 			},

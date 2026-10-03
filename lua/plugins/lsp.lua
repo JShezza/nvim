@@ -51,14 +51,14 @@ return {
 			vim.diagnostic.config({
 				update_in_insert = false,
 				float = {
-					focusabled = false,
+					focusable = false,
 					style = 'minimal',
 					border = 'rounded',
 					source = 'if_many',
 					header = '',
 					prefix = '',
 				},
-				underline = { sverity = { min = vim.diagnostic.severity.WARN } },
+				underline = { severity = { min = vim.diagnostic.severity.WARN } },
 				virtual_text = true,
 				virtual_lines = false,
 			})
