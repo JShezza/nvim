@@ -5,6 +5,7 @@ return {
 	opts = {
 		variant = 'main',
 		styles = {
+			transparency = true,
 			italic = false,
 		},
 	},
