@@ -1,0 +1,29 @@
+return {
+	'nvim-mini/mini.nvim',
+	version = '*',
+
+	config = function()
+		if vim.g.have_nerd_font then
+			require('mini.icons').setup()
+		end
+
+		require('mini.surround').setup()
+
+		require('mini.ai').setup({
+			mappings = {
+				around_next = 'aa',
+				inside_next = 'ii',
+			},
+			n_lines = 500,
+		})
+
+		local statusline = require('mini.statusline')
+		statusline.setup({
+			use_icons = vim.g.have_nerd_font,
+		})
+
+		statusline.section_location = function()
+			return '%2l:%-2v'
+		end
+	end,
+}

@@ -12,7 +12,7 @@ return {
 			local gitsigns = require('gitsigns')
 			local function map(mode, l, r, opts)
 				opts = opts or {}
-				opts.buffer = bufnr
+				opts.buf = bufnr
 				vim.keymap.set(mode, l, r, opts)
 			end
 
@@ -22,7 +22,7 @@ return {
 				else
 					gitsigns.nav_hunk('next')
 				end
-			end, { desc = 'Jump to next change', buf = bufnr })
+			end, { desc = 'Jump to next change' })
 
 			map('n', '[c', function()
 				if vim.wo.diff then
@@ -30,7 +30,7 @@ return {
 				else
 					gitsigns.nav_hunk('prev')
 				end
-			end, { desc = 'Jump to previous change', buf = bufnr })
+			end, { desc = 'Jump to previous change' })
 
 			-- Actions
 			map('n', '<leader>hs', gitsigns.stage_hunk) -- git stage hunk
